@@ -15,7 +15,7 @@
     <bytecodeTargetLevel>
       <module name="connector" target="1.5" />
       <module name="keycloak-custom-plugin" target="1.5" />
-      <module name="keycloak-custom-providers" target="1.5" />
+      <module name="keycloak-custom-providers" target="7" />
       <module name="keycloak-custom-root" target="1.5" />
       <module name="oauth-authorization-server" target="1.8" />
     </bytecodeTargetLevel>

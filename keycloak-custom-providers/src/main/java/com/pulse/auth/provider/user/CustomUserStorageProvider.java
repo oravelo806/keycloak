@@ -66,4 +66,65 @@ public class CustomUserStorageProvider implements UserStorageProvider,
             throw new RuntimeException("Database error:" + ex.getMessage(),ex);
         }
     }
+
+    @Override
+    public UserModel getUserByEmail(String email, RealmModel realm) {
+            log.info("[I48] getUserByEmail({})",email);
+            try {
+                    Connection c = DbUtil.getConnection(this.model)) {
+                    PreparedStatement st = c.prepareStatement("select username, firstName,lastName, email, birthDate from users where email = ?");
+                    st.setString(1, email);
+                    st.execute();
+                    ResultSet rs = st.getResultSet();
+                    if (rs.next()) {
+                        return mapUser(realm, rs);
+                    } else {
+                        return null;
+                    }
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Database error:" + ex.getMessage(),ex);
+            }
+    }
+
+    @Override
+    public boolean supportsCredentialType(String credentialType) {
+        log.info("[I57] supportsCredentialType({})",credentialType);
+        return PasswordCredentialModel.TYPE.endsWith(credentialType);
+    }
+
+    @Override
+    public boolean isConfiguredFor(RealmModel realm, UserModel user, String credentialType) {
+        log.info("[I57] isConfiguredFor(realm={},user={},credentialType={})",realm.getName(), user.getUsername(), credentialType);
+        // In our case, password is the only type of credential, so we allways return 'true' if
+        // this is the credentialType
+        return supportsCredentialType(credentialType);
+    }
+
+    @Override
+    public boolean isValid(RealmModel realm, UserModel user, CredentialInput credentialInput) {
+        log.info("[I57] isValid(realm={},user={},credentialInput.type={})",realm.getName(), user.getUsername(), credentialInput.getType());
+        if( !this.supportsCredentialType(credentialInput.getType())) {
+            return false;
+        }
+        StorageId sid = new StorageId(user.getId());
+        String username = sid.getExternalId();
+
+        try ( Connection c = DbUtil.getConnection(this.model)) {
+            PreparedStatement st = c.prepareStatement("select password from users where username = ?");
+            st.setString(1, username);
+            st.execute();
+            ResultSet rs = st.getResultSet();
+            if ( rs.next()) {
+                String pwd = rs.getString(1);
+                return pwd.equals(credentialInput.getChallengeResponse());
+            }
+            else {
+                return false;
+            }
+        }
+        catch(SQLException ex) {
+            throw new RuntimeException("Database error:" + ex.getMessage(),ex);
+        }
+    }
 }
