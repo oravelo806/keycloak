@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/connector.iml" filepath="$PROJECT_DIR$/connector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-custom-plugin/keycloak-custom-plugin.iml" filepath="$PROJECT_DIR$/keycloak-custom-plugin/keycloak-custom-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" filepath="$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" filepath="$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" filepath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" />
+    </modules>
+  </component>
+</project>
