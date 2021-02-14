@@ -1,2 +1,14 @@
-.idea/*
+**/.classpath
+
+**/.project
+
+**/.settings
+
+**/target/**
+**/targer/**
+*.idea/
 *.iml
+*.md
+*.cmd
+*.mvn
+mvnw

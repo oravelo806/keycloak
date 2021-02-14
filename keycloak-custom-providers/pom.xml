@@ -6,6 +6,7 @@
         <artifactId>keycloak-custom-root</artifactId>
         <groupId>com.pulse</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../keycloak-custom-root/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 

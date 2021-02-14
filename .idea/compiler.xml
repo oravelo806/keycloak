@@ -17,7 +17,7 @@
       <module name="keycloak-custom-plugin" target="1.5" />
       <module name="keycloak-custom-providers" target="7" />
       <module name="keycloak-custom-root" target="1.5" />
-      <module name="oauth-authorization-server" target="1.8" />
+      <module name="oauth-authorization-server" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -26,7 +26,7 @@
       <module name="keycloak-custom-plugin" options="" />
       <module name="keycloak-custom-providers" options="" />
       <module name="keycloak-custom-root" options="" />
-      <module name="oauth-authorization-server" options="-parameters" />
+      <module name="oauth-authorization-server" options="" />
     </option>
   </component>
 </project>

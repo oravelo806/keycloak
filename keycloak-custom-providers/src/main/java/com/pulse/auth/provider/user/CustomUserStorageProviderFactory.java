@@ -88,7 +88,7 @@ public class CustomUserStorageProviderFactory
     public void onUpdate(KeycloakSession session, RealmModel realm, ComponentModel oldModel, ComponentModel newModel) {
         log.info("[I94] onUpdate()");
     }
-    
+
     @Override
     public void onCreate(KeycloakSession session, RealmModel realm, ComponentModel model) {
         log.info("[I99] onCreate()");

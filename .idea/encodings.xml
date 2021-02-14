@@ -9,5 +9,6 @@
     <file url="file://$PROJECT_DIR$/keycloak-custom-root" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oauth-authorization-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oauth-authorization-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/oauth-authorization-server/src/main/resources" charset="UTF-8" />
   </component>
 </project>
