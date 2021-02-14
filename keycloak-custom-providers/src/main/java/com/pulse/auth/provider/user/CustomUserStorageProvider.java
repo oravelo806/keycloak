@@ -17,11 +17,11 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class CustomUserStorageProvider implements UserStorageProvider,
         UserLookupProvider,
@@ -70,8 +70,7 @@ public class CustomUserStorageProvider implements UserStorageProvider,
     @Override
     public UserModel getUserByEmail(String email, RealmModel realm) {
             log.info("[I48] getUserByEmail({})",email);
-            try {
-                    Connection c = DbUtil.getConnection(this.model)) {
+            try ( Connection c = DbUtil.getConnection(this.model)) {
                     PreparedStatement st = c.prepareStatement("select username, firstName,lastName, email, birthDate from users where email = ?");
                     st.setString(1, email);
                     st.execute();
@@ -81,7 +80,6 @@ public class CustomUserStorageProvider implements UserStorageProvider,
                     } else {
                         return null;
                     }
-                }
             } catch (SQLException ex) {
                 throw new RuntimeException("Database error:" + ex.getMessage(),ex);
             }
@@ -126,5 +124,106 @@ public class CustomUserStorageProvider implements UserStorageProvider,
         catch(SQLException ex) {
             throw new RuntimeException("Database error:" + ex.getMessage(),ex);
         }
+    }
+
+    @Override
+    public int getUsersCount(RealmModel realm) {
+        log.info("[I93] getUsersCount: realm={}", realm.getName() );
+        try ( Connection c = DbUtil.getConnection(this.model)) {
+            Statement st = c.createStatement();
+            st.execute("select count(*) from users");
+            ResultSet rs = st.getResultSet();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            throw new RuntimeException("Database error:" + ex.getMessage(), ex);
+        }
+    }
+
+    @Override
+    public List<UserModel> getUsers(RealmModel realm) {
+            return getUsers(realm, 0,5000); // Keep a reasonable maxResults
+    }
+
+    @Override
+    public List<UserModel> getUsers(RealmModel realm, int firstResult, int maxResults) {
+        log.info("[I113] getUsers: realm={}", realm.getName());
+
+        try (Connection c = DbUtil.getConnection(this.model)) {
+            PreparedStatement st = c.prepareStatement("select username, firstname, lastname, email, birthDate from users order by username limit ? offset ?");
+            st.setInt(1, maxResults);
+            st.setInt(2, firstResult);
+            st.execute();
+            ResultSet rs = st.getResultSet();
+            List<UserModel> users = new ArrayList<>();
+            while (rs.next()) {
+                users.add(mapUser(realm, rs));
+            }
+            return users;
+        } catch (SQLException ex) {
+            throw new RuntimeException("Database error:" + ex.getMessage(),ex);
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUser(String search, RealmModel realm) {
+         return searchForUser(search, realm, 0, 5000);
+    }
+
+    @Override
+    public List<UserModel> searchForUser(String search, RealmModel realm, int firstResult, int maxResults) {
+        log.info("[I139] searchForUser: realm={}", realm.getName());
+
+        try ( Connection c = DbUtil.getConnection(this.model)) {
+            PreparedStatement st = c.prepareStatement("select name, firstName, lastName, email, birthDate from users where username like ? order by username limit ? offset ?");
+            st.setString(1, search);
+            st.setInt(2, maxResults);
+            st.setInt(3, firstResult);
+            st.execute();
+            ResultSet rs = st.getResultSet();
+            List<UserModel> users = new ArrayList<>();
+            while(rs.next()) {
+                users.add(mapUser(realm, rs));
+            }
+            return users;
+        } catch (SQLException ex) {
+            throw new RuntimeException("Database error:" + ex.getMessage(),ex);
+        }
+    }
+
+    @Override
+    public List<UserModel> searchForUser(Map<String, String> params, RealmModel realm) {
+        return searchForUser(params,realm,0,5000);
+    }
+
+    @Override
+    public List<UserModel> searchForUser(Map<String, String> pararms,RealmModel realm, int firstResult, int maxResults) {
+        return getUsers(realm, firstResult, maxResults);
+    }
+
+    @Override
+    public List<UserModel> getGroupMembers(RealmModel realm, GroupModel group, int firstResult, int maxResults) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<UserModel> getGroupMembers(RealmModel realm, GroupModel group) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<UserModel> searchForUserByUserAttribute(String attrName, String attrValue, RealmModel realm) {
+        return Collections.emptyList();
+    }
+
+    private UserModel mapUser(RealmModel realm, ResultSet rs) throws SQLException {
+            DateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+            CustomUser user = new CustomUser.Builder(ksession, realm, model, rs.getString("username"))
+                    .email(rs.getString("email"))
+                    .firstName(rs.getString("firstnName"))
+                    .lastName(rs.getString("lastName"))
+                    .birthDate(rs.getDate("birthDate"))
+                    .build();
+            return user;
     }
 }
