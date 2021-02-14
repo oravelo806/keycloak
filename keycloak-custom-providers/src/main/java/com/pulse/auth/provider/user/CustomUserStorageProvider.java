@@ -1,5 +1,7 @@
 package com.pulse.auth.provider.user;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.credential.CredentialInput;
 import org.keycloak.credential.CredentialInputValidator;
@@ -12,7 +14,6 @@ import org.keycloak.storage.StorageId;
 import org.keycloak.storage.UserStorageProvider;
 import org.keycloak.storage.user.UserLookupProvider;
 import org.keycloak.storage.user.UserQueryProvider;
-import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.text.DateFormat;
@@ -21,14 +22,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import org.slf4j.Logger;
+
 
 public class CustomUserStorageProvider implements UserStorageProvider,
         UserLookupProvider,
         CredentialInputValidator,
         UserQueryProvider {
 
-        private static final Logger log = LoggerFactory.getLogger(CustomUserStorageProvider.class);
+        private static final Logger log = LogManager.getLogger(CustomUserStorageProvider.class);
         private KeycloakSession ksession;
         private ComponentModel model;
 

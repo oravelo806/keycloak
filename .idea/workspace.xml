@@ -20,8 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23c67129-dc48-448e-a607-adaeff88b64f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/resources/log4j2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-custom-plugin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-plugin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProviderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-root/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-root/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -50,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tom-immo-back" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.34411764" />
@@ -98,7 +107,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613129461056</updated>
       <workItem from="1613231043155" duration="3925000" />
-      <workItem from="1613319742921" duration="10304000" />
+      <workItem from="1613319742921" duration="11485000" />
     </task>
     <servers />
   </component>
@@ -122,13 +131,24 @@
       <screen x="0" y="0" width="1827" height="1080" />
     </state>
     <state x="393" y="114" key="#Project_Structure/0.0.1827.1080@0.0.1827.1080" timestamp="1613329184049" />
-    <state x="1151" y="298" key="FileChooserDialogImpl" timestamp="1613231276937">
+    <state x="1151" y="298" key="FileChooserDialogImpl" timestamp="1613331057394">
       <screen x="0" y="0" width="1827" height="1080" />
     </state>
-    <state x="1151" y="298" key="FileChooserDialogImpl/0.0.1827.1080@0.0.1827.1080" timestamp="1613231276937" />
+    <state x="1151" y="298" key="FileChooserDialogImpl/0.0.1827.1080@0.0.1827.1080" timestamp="1613331057394" />
     <state x="1033" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1613320795502">
       <screen x="0" y="0" width="1827" height="1080" />
     </state>
     <state x="1033" y="240" width="672" height="678" key="search.everywhere.popup/0.0.1827.1080@0.0.1827.1080" timestamp="1613320795502" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProviderFactory.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

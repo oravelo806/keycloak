@@ -1,5 +1,7 @@
 package com.pulse.auth.provider.user;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.component.ComponentValidationException;
 import org.keycloak.models.KeycloakSession;
@@ -7,10 +9,8 @@ import org.keycloak.models.RealmModel;
 import org.keycloak.provider.ProviderConfigProperty;
 import org.keycloak.provider.ProviderConfigurationBuilder;
 import org.keycloak.storage.UserStorageProviderFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.awt.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -19,7 +19,7 @@ import static com.pulse.auth.provider.user.CustomUserStorageProviderConstants.*;
 
 public class CustomUserStorageProviderFactory
         implements UserStorageProviderFactory<CustomUserStorageProvider> {
-    private static final Logger log = LoggerFactory.getLogger(CustomUserStorageProviderFactory.class);
+    private static final Logger log = LogManager.getLogger(CustomUserStorageProviderFactory.class);
     protected final List<ProviderConfigProperty> configMetadata;
 
     public CustomUserStorageProviderFactory() {
