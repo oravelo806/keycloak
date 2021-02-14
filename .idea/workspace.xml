@@ -20,14 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="23c67129-dc48-448e-a607-adaeff88b64f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/keycloak-custom-providers.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-root/keycloak-custom-root.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/oauth-authorization-server/oauth-authorization-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/keycloak-custom-providers/src/main/java/com/pulse/auth/provider/user/CustomUserStorageProviderFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1613129461056</updated>
       <workItem from="1613231043155" duration="3925000" />
-      <workItem from="1613319742921" duration="6181000" />
+      <workItem from="1613319742921" duration="8723000" />
     </task>
     <servers />
   </component>
